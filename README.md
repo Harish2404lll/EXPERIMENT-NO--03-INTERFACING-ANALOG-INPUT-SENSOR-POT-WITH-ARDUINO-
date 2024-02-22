@@ -1,9 +1,12 @@
- INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-
+ # INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-
+### DATE: 22.02.2024
+### NAME: HARISH G
+### ROLL.NO: 212222243001
 
 
 
-
-**AIM**:  To interface a Analog  input (angular displacement sensor POT) and scale the values up on change in the input.
+**AIM**:  
+To interface a Analog  input (angular displacement sensor POT) and scale the values up on change in the input.
 
 
 **COMPONENTS REQUIRED:**
@@ -64,22 +67,52 @@ CIRCUIT DIAGRAM
 8.	Upload the program and check for the physical working. 
 9.	Ensure safety before powering up the device 
 
+### CIRCUIT:
+![Screenshot 2024-02-22 112442](https://github.com/Harish2404lll/EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/141472096/407a3c13-8f93-406f-a1e2-2e0c477bd1c5)
 
+
+### SCHEMATIC DIAGRAM:
+![WhatsApp Image 2024-02-22 at 11 26 13_0a0b4e5a](https://github.com/Harish2404lll/EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/141472096/29c73566-fc94-4b4a-b959-b614ee9f14aa)
 
 **PROGRAM** 
- 
+```
+// C++ code
+//
 
+int led=4;
+int sensorpot;
 
+void setup()
+{
+ pinMode(led, OUTPUT);
+ Serial.begin(9600);
+}
 
+void loop()
+{
+ sensorpot=analogRead(A0);
+ Serial.print("data=");
+ Serial.println(sensorpot);
+ delay(50);
+ if(sensorpot>500)
+ {
+   digitalWrite(led,HIGH);
+     delay(100);
+   digitalWrite(led,LOW);
+     delay(100);
+ }
+ else
+ {
+   digitalWrite(led,LOW);
+     delay(100);
+ }
+}
+```
 
+### Simulation output:
+## SERIAL MONITOR:
+![Screenshot 2024-02-22 112413](https://github.com/Harish2404lll/EXPERIMENT-NO--03-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/141472096/099326d3-c4cb-48a5-9370-32179d8bb08b)
 
-
-
-
-
-**
-**Simulation output:** 
-**
 
 
 [My image](username.github.com/repository/img/image.jpg)
@@ -90,4 +123,5 @@ CIRCUIT DIAGRAM
 
 
 
-**RESULT: ** Arduino uno analog input functioning is learned and interfaced with digital input switch .
+## RESULT: 
+Arduino uno analog input functioning is learned and interfaced with digital input switch .
